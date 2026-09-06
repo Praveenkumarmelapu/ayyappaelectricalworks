@@ -127,31 +127,31 @@ export default function ServicesSection({ activeSector, setActiveSector }) {
             return (
               <div
                 key={card.id}
-                className="card-rim-light bg-[#14171F] p-4 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/15 hover:border-[#FFB800] transition-all duration-300 shadow-2xl flex flex-col justify-between"
+                className="card-rim-light bg-[#14171F] p-5 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/15 hover:border-[#FFB800] transition-all duration-300 shadow-2xl flex flex-col justify-between"
               >
                 <div>
                   {/* Card Title & Badge */}
-                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/15">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 pb-4 border-b border-white/15">
                     <div className="flex items-center gap-3">
-                      <div className={`p-3 rounded-2xl ${card.iconBg}`}>
-                        <Icon className="w-6 h-6" />
+                      <div className={`p-3 rounded-2xl ${card.iconBg} shrink-0`}>
+                        <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                       </div>
-                      <h3 className="text-2xl font-display font-extrabold text-white uppercase tracking-wide">
+                      <h3 className="text-xl sm:text-2xl font-display font-extrabold text-white uppercase tracking-wide leading-snug">
                         {card.title}
                       </h3>
                     </div>
-                    <span className={`text-[10px] font-mono uppercase px-2.5 py-1 rounded-full border font-bold ${card.badgeColor}`}>
+                    <span className={`self-start sm:self-auto text-[10px] sm:text-xs font-mono uppercase px-3 py-1 rounded-full border font-bold ${card.badgeColor}`}>
                       {card.badge}
                     </span>
                   </div>
 
                   {/* High Contrast Service Items */}
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     {card.items.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#0B0C10] border border-white/15 hover:border-[#FFB800]/50 transition-all text-left">
+                      <div key={idx} className="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0B0C10] border border-white/15 hover:border-[#FFB800]/50 transition-all text-left">
                         <CheckCircle2 className="w-5 h-5 text-[#FFB800] flex-shrink-0 mt-0.5" />
                         <div>
-                          <h4 className="text-base font-display font-extrabold text-white uppercase tracking-wide mb-1">
+                          <h4 className="text-sm sm:text-base font-display font-extrabold text-white uppercase tracking-wide mb-1">
                             {item.title}
                           </h4>
                           <p className="text-xs sm:text-sm text-gray-200 font-normal leading-relaxed">
@@ -164,11 +164,11 @@ export default function ServicesSection({ activeSector, setActiveSector }) {
                 </div>
 
                 {/* Footer Call Action */}
-                <div className="pt-5 mt-6 border-t border-white/15 flex items-center justify-between">
-                  <span className="font-mono text-gray-300 text-xs font-bold">Makkuva Technical Crew Dispatch</span>
+                <div className="pt-4 sm:pt-5 mt-5 sm:mt-6 border-t border-white/15 flex items-center justify-between">
+                  <span className="font-mono text-gray-300 text-[11px] sm:text-xs font-bold">Makkuva Technical Dispatch</span>
                   <a
                     href="tel:8919482946"
-                    className="font-display font-extrabold text-[#FFB800] hover:text-white uppercase text-sm flex items-center gap-1"
+                    className="font-display font-extrabold text-[#FFB800] hover:text-white uppercase text-xs sm:text-sm flex items-center gap-1 btn-hover-glow"
                   >
                     <span>Book Inspection</span>
                     <ChevronRight className="w-4 h-4" />

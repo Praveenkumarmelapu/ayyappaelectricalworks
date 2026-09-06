@@ -88,16 +88,16 @@ export default function ProjectsShowcase() {
         {/* Compact Horizontal Slider Carousel */}
         <div
           ref={carouselRef}
-          className="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory py-2"
+          className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory py-2 px-1 sm:px-0"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {projects.map((project) => (
             <div
               key={project.id}
-              className="w-[280px] sm:w-[360px] max-w-[85vw] flex-shrink-0 snap-start card-rim-light bg-[#14171F] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 hover:border-[#FFB800]/50 transition-all duration-300 group shadow-2xl flex flex-col justify-between"
+              className="w-[88vw] max-w-[360px] sm:w-[360px] flex-shrink-0 snap-start card-rim-light bg-[#14171F] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 hover:border-[#FFB800]/50 transition-all duration-300 group shadow-2xl flex flex-col justify-between"
             >
               {/* Image Banner */}
-              <div className="relative h-48 overflow-hidden bg-black/40">
+              <div className="relative h-52 sm:h-56 overflow-hidden bg-black/40">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -112,22 +112,22 @@ export default function ProjectsShowcase() {
               </div>
 
               {/* Card Body */}
-              <div className="p-5 flex flex-col justify-between flex-1">
+              <div className="p-5 sm:p-6 flex flex-col justify-between flex-1">
                 <div>
-                  <h3 className="text-lg font-display font-bold text-white uppercase mb-2 group-hover:text-[#FFB800] transition-colors leading-tight">
+                  <h3 className="text-base sm:text-lg font-display font-extrabold text-white uppercase mb-2 group-hover:text-[#FFB800] transition-colors leading-snug">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-gray-300 font-light leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-gray-200 font-normal leading-relaxed mb-4">
                     {project.desc}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 font-mono">
-                  <span className="flex items-center gap-1 text-[#FFB800]">
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-gray-300 font-mono">
+                  <span className="flex items-center gap-1 text-[#FFB800] font-bold">
                     <MapPin className="w-3.5 h-3.5 text-[#FFB800]" />
                     {project.location}
                   </span>
-                  <span className="text-[10px] text-gray-400">Field Handover</span>
+                  <span className="text-[10px] text-gray-400 font-bold">Field Handover</span>
                 </div>
               </div>
             </div>
