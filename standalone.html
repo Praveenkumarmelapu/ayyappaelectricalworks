@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayyappa Electrical, Plumbing & Demolition Works — Makkuva</title>
+  <meta name="description" content="Makkuva's trusted electrical, plumbing & demolition contractors. Serving Bobbili, Salur, Parvathipuram & Manyam District. Call 89194 82946."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0a0a0a;
+      --card: #111111;
+      --card-border: #1e1e1e;
+      --accent: #f59e0b;
+      --accent-dark: #d97706;
+      --white: #ffffff;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --red: #ef4444;
+      --emerald: #10b981;
+      --blue: #3b82f6;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-full: 9999px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--gray-200);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5 { font-family: 'Space Grotesk', 'Inter', sans-serif; color: var(--white); line-height: 1.1; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; height: auto; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+    }
+    .section-label::before { content: ''; width: 32px; height: 2px; background: var(--accent); }
+    .section-title { font-size: clamp(28px, 5vw, 48px); font-weight: 700; margin-bottom: 16px; }
+    .section-subtitle { font-size: 16px; color: var(--gray-400); max-width: 560px; line-height: 1.7; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
+      border-radius: var(--radius-full); border: none; cursor: pointer;
+      transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .btn-primary { background: var(--accent); color: #000; }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,158,11,0.3); }
+    .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.2); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-whatsapp { background: var(--emerald); color: #fff; }
+    .btn-whatsapp:hover { background: #059669; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(16,185,129,0.3); }
+    .divider { width: 100%; height: 1px; background: var(--card-border); }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 0;
+      transition: all 0.4s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 10px 0;
+    }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 12px; }
+    .nav-logo {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: 20px; color: #000;
+    }
+    .nav-brand-text h4 { font-size: 16px; font-weight: 700; line-height: 1.2; }
+    .nav-brand-text span { font-size: 10px; font-weight: 600; color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--gray-400); transition: color 0.3s; letter-spacing: 0.3px; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+    .nav-phone {
+      display: flex; align-items: center; gap: 8px; padding: 10px 20px;
+      background: var(--accent); color: #000; font-size: 13px; font-weight: 700;
+      border-radius: var(--radius-full); transition: all 0.3s;
+    }
+    .nav-phone:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .nav-phone svg { width: 16px; height: 16px; }
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer; padding: 8px;
+      flex-direction: column; gap: 5px;
+    }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+    .mobile-menu {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 200;
+      background: rgba(10,10,10,0.98); padding: 80px 32px 32px;
+      flex-direction: column; gap: 8px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      display: block; padding: 16px 0; font-size: 18px; font-weight: 600; color: var(--gray-200);
+      border-bottom: 1px solid var(--card-border); transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+    .mobile-close {
+      position: absolute; top: 24px; right: 24px; background: none; border: none;
+      color: var(--white); font-size: 28px; cursor: pointer; padding: 8px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      overflow: hidden; padding-top: 80px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.3);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.7) 50%, rgba(10,10,10,0.4) 100%);
+    }
+    .hero .container { position: relative; z-index: 2; }
+    .hero-content { max-width: 640px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
+      background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.3);
+      border-radius: var(--radius-full); margin-bottom: 24px;
+    }
+    .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    .hero-badge span { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .hero h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 800; margin-bottom: 20px; letter-spacing: -1px; }
+    .hero h1 .highlight { color: var(--accent); }
+    .hero-desc { font-size: 17px; color: var(--gray-300); line-height: 1.8; margin-bottom: 36px; max-width: 520px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 48px; }
+    .hero-stats { display: flex; gap: 40px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .hero-stat h3 { font-size: 32px; font-weight: 800; color: var(--accent); }
+    .hero-stat p { font-size: 12px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+    /* ===== SERVICES ===== */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .service-card {
+      background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius);
+      padding: 36px 28px; transition: all 0.4s ease; position: relative; overflow: hidden;
+    }
+    .service-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+    .service-card-icon {
+      width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 24px;
+    }
+    .service-card-icon.elec { background: rgba(245,158,11,0.15); color: var(--accent); }
+    .service-card-icon.demo { background: rgba(239,68,68,0.15); color: var(--red); }
+    .service-card-icon.plumb { background: rgba(59,130,246,0.15); color: var(--blue); }
+    .service-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+    .service-card p { font-size: 14px; color: var(--gray-400); line-height: 1.7; margin-bottom: 20px; }
+    .service-card ul { list-style: none; margin-bottom: 20px; }
+    .service-card ul li {
+      font-size: 13px; color: var(--gray-300); padding: 6px 0; padding-left: 20px;
+      position: relative; border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .service-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; font-size: 12px; }
+    .service-card .card-link {
+      font-size: 13px; font-weight: 700; color: var(--accent); display: inline-flex; align-items: center; gap: 6px;
+      transition: gap 0.3s;
+    }
+    .service-card:hover .card-link { gap: 10px; }
+
+    /* ===== PROJECTS ===== */
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+    .project-card {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      aspect-ratio: 16/10; cursor: pointer; group: true;
+    }
+    .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .project-card:hover img { transform: scale(1.05); }
+    .project-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%);
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 28px;
+    }
+    .project-tag {
+      display: inline-block; padding: 4px 12px; background: var(--accent); color: #000;
+      font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+      border-radius: var(--radius-full); margin-bottom: 10px; width: fit-content;
+    }
+    .project-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .project-card p { font-size: 13px; color: var(--gray-400); }
+
+    /* ===== PROCESS ===== */
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+    .process-card { text-align: center; padding: 32px 20px; position: relative; }
+    .process-num {
+      font-family: 'Space Grotesk', sans-serif; font-size: 56px; font-weight: 700;
+      color: rgba(245,158,11,0.12); line-height: 1; margin-bottom: 16px;
+    }
+    .process-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .process-card p { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+    .process-connector {
+      position: absolute; top: 50%; right: -12px; width: 24px; height: 1px;
+      background: var(--card-border);
+    }
+    .process-card:last-child .process-connector { display: none; }
+
+    /* ===== WHY US ===== */
+    .why-section { background: var(--card); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 48px; }
+    .why-card { text-align: center; padding: 24px 16px; }
+    .why-card-num { font-family: 'Space Grotesk', sans-serif; font-size: 44px; font-weight: 800; color: var(--accent); margin-bottom: 8px; }
+    .why-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .why-card p { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+
+    /* ===== REVIEWS ===== */
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .review-card {
+      background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius);
+      padding: 32px; transition: border-color 0.3s;
+    }
+    .review-card:hover { border-color: rgba(245,158,11,0.3); }
+    .review-stars { color: var(--accent); font-size: 14px; margin-bottom: 16px; letter-spacing: 2px; }
+    .review-card blockquote { font-size: 14px; color: var(--gray-300); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+    .review-author { display: flex; align-items: center; gap: 12px; }
+    .review-avatar {
+      width: 40px; height: 40px; border-radius: 50%; background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 16px; color: #000;
+    }
+    .review-author-info h5 { font-size: 14px; font-weight: 700; }
+    .review-author-info p { font-size: 12px; color: var(--gray-500); }
+
+    /* ===== CONTACT ===== */
+    .contact-section { background: var(--card); border-top: 1px solid var(--card-border); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px; align-items: start; }
+    .contact-info h3 { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
+    .contact-info > p { font-size: 15px; color: var(--gray-400); line-height: 1.7; margin-bottom: 32px; }
+    .contact-cards { display: flex; flex-direction: column; gap: 16px; }
+    .contact-card {
+      display: flex; align-items: center; gap: 16px; padding: 20px;
+      background: var(--bg); border: 1px solid var(--card-border); border-radius: var(--radius-sm);
+      transition: border-color 0.3s;
+    }
+    .contact-card:hover { border-color: var(--accent); }
+    .contact-card-icon {
+      width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 20px;
+    }
+    .contact-card-icon.phone-icon { background: rgba(245,158,11,0.15); color: var(--accent); }
+    .contact-card-icon.wa-icon { background: rgba(16,185,129,0.15); color: var(--emerald); }
+    .contact-card-icon.loc-icon { background: rgba(59,130,246,0.15); color: var(--blue); }
+    .contact-card h5 { font-size: 10px; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+    .contact-card p { font-size: 16px; font-weight: 700; color: var(--white); }
+    .contact-form-wrap {
+      background: var(--bg); border: 1px solid var(--card-border); border-radius: var(--radius);
+      padding: 36px;
+    }
+    .contact-form-wrap h3 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .contact-form-wrap > p { font-size: 13px; color: var(--gray-500); margin-bottom: 24px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--gray-400); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 12px 16px; background: var(--card); border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm); color: var(--white); font-family: 'Inter', sans-serif; font-size: 14px;
+      outline: none; transition: border-color 0.3s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-submit {
+      width: 100%; padding: 14px; background: var(--accent); color: #000; border: none;
+      border-radius: var(--radius-sm); font-family: 'Inter', sans-serif; font-size: 14px;
+      font-weight: 700; cursor: pointer; transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .form-submit:hover { background: var(--accent-dark); }
+    .form-success {
+      display: none; text-align: center; padding: 40px 20px;
+    }
+    .form-success .check-icon {
+      width: 56px; height: 56px; border-radius: 50%; background: rgba(245,158,11,0.15);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+      font-size: 28px; color: var(--accent);
+    }
+    .form-success h4 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .form-success p { font-size: 14px; color: var(--gray-400); }
+
+    /* ===== FOOTER ===== */
+    .footer { padding: 48px 0 24px; border-top: 1px solid var(--card-border); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand h4 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+    .footer-brand p { font-size: 13px; color: var(--gray-500); line-height: 1.7; max-width: 300px; }
+    .footer-col h5 { font-size: 12px; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 13px; color: var(--gray-500); padding: 4px 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--card-border); }
+    .footer-bottom p { font-size: 12px; color: var(--gray-500); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .services-grid, .projects-grid, .reviews-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-connector { display: none; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .hero h1 { font-size: 36px; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#hero" class="nav-brand">
+        <div class="nav-logo">A</div>
+        <div class="nav-brand-text">
+          <h4>Ayyappa Works</h4>
+          <span>Makkuva, Andhra Pradesh</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="tel:8919482946" class="nav-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          89194 82946
+        </a>
+        <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="toggleMobileMenu()">✕</button>
+    <a href="#services" onclick="toggleMobileMenu()">Services</a>
+    <a href="#projects" onclick="toggleMobileMenu()">Projects</a>
+    <a href="#process" onclick="toggleMobileMenu()">How We Work</a>
+    <a href="#reviews" onclick="toggleMobileMenu()">Client Reviews</a>
+    <a href="#contact" onclick="toggleMobileMenu()">Contact Us</a>
+    <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
+      <a href="tel:8919482946" class="btn btn-primary" style="justify-content: center;">📞 Call: 89194 82946</a>
+      <a href="https://wa.me/918919482946?text=Hello%20Ayyappa%20Works%2C%20I%20need%20a%20site%20visit." target="_blank" class="btn btn-whatsapp" style="justify-content: center;">💬 WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" alt="Construction worksite" id="heroBgImg"/>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <div class="dot"></div>
+          <span>Makkuva's Trusted Contractors</span>
+        </div>
+        <h1>
+          Electrical, Plumbing &<br/>
+          <span class="highlight">Demolition Experts.</span>
+        </h1>
+        <p class="hero-desc">
+          Professional electrical wiring, CPVC plumbing, diamond core cutting, and heavy structural demolition services across Makkuva, Bobbili, Salur, and Parvathipuram.
+        </p>
+        <div class="hero-actions">
+          <a href="tel:8919482946" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call Now: 89194 82946
+          </a>
+          <a href="https://wa.me/918919482946?text=Hello%20Ayyappa%20Works%2C%20I%20need%20a%20site%20visit." target="_blank" class="btn btn-whatsapp">
+            💬 Chat on WhatsApp
+          </a>
+          <a href="#services" class="btn btn-outline">View Services →</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><h3>500+</h3><p>Projects Done</p></div>
+          <div class="hero-stat"><h3>100%</h3><p>Safety Record</p></div>
+          <div class="hero-stat"><h3>&lt;45m</h3><p>Site Arrival</p></div>
+          <div class="hero-stat"><h3>15+</h3><p>Years Experience</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title reveal">Our Core Services</h2>
+      <p class="section-subtitle reveal">Professional field services delivered by certified technicians with industrial-grade equipment.</p>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-card-icon elec">⚡</div>
+          <h3>Electrical Works</h3>
+          <p>Complete residential and commercial electrical installations by licensed technicians.</p>
+          <ul>
+            <li>House & villa concealed wiring</li>
+            <li>3-phase MCB & DB panel setup</li>
+            <li>Inverter & generator backup lines</li>
+            <li>Chemical gel earthing pits</li>
+            <li>RCCB & surge protection wiring</li>
+          </ul>
+          <a href="tel:8919482946" class="card-link">Book Service →</a>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-icon demo">🔨</div>
+          <h3>Demolition & Breaking</h3>
+          <p>Heavy structural demolition with hydraulic breakers and pneumatic compressors.</p>
+          <ul>
+            <li>Full house & building demolition</li>
+            <li>RCC slab & pillar breaking</li>
+            <li>Diamond core drilling (25–300mm)</li>
+            <li>Precision wall sawing & trimming</li>
+            <li>Debris clearing & site leveling</li>
+          </ul>
+          <a href="tel:8919482946" class="card-link">Book Service →</a>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-icon plumb">🔧</div>
+          <h3>Plumbing Systems</h3>
+          <p>CPVC/UPVC water supply lines, sanitary fixtures, and underground pipeline repair.</p>
+          <ul>
+            <li>Concealed hot & cold water piping</li>
+            <li>Bathroom diverters & shower panels</li>
+            <li>Underground pipe leakage repair</li>
+            <li>Borewell & pump piping connections</li>
+            <li>Pressure testing & blockage clearing</li>
+          </ul>
+          <a href="tel:8919482946" class="card-link">Book Service →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-label">Recent Work</div>
+      <h2 class="section-title reveal">Project Showcase</h2>
+      <p class="section-subtitle reveal">Real field projects completed across Makkuva, Bobbili, and Salur regions.</p>
+
+      <div class="projects-grid">
+        <div class="project-card reveal">
+          <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?q=80&w=1200&auto=format&fit=crop" alt="RCC demolition project"/>
+          <div class="project-card-overlay">
+            <span class="project-tag">Demolition</span>
+            <h3>RCC Slab Breaking & Rubble Clearing</h3>
+            <p>Hydraulic breaker demolition — Makkuva Town</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <img src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?q=80&w=1200&auto=format&fit=crop" alt="Electrical panel wiring"/>
+          <div class="project-card-overlay">
+            <span class="project-tag">Electrical</span>
+            <h3>3-Phase DB Panel Wiring & Testing</h3>
+            <p>Main switchboard installation — Bobbili Road</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" alt="Core drilling project"/>
+          <div class="project-card-overlay">
+            <span class="project-tag">Core Cutting</span>
+            <h3>Diamond Core Drilling for AC Ducts</h3>
+            <p>Wet core drilling — Salur Mandal</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop" alt="Plumbing pipeline work"/>
+          <div class="project-card-overlay">
+            <span class="project-tag">Plumbing</span>
+            <h3>Underground CPVC Water Network</h3>
+            <p>Concealed pipeline setup — Makkuva Colony</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROCESS -->
+  <section class="section" id="process">
+    <div class="container" style="text-align: center;">
+      <div class="section-label" style="justify-content: center;">How We Work</div>
+      <h2 class="section-title reveal">Simple 4-Step Process</h2>
+      <p class="section-subtitle reveal" style="margin: 0 auto 0;">From first call to completed handover — we keep it clear and efficient.</p>
+
+      <div class="process-grid">
+        <div class="process-card reveal">
+          <div class="process-num">01</div>
+          <h4>Free Site Visit</h4>
+          <p>Call us and we'll send a supervisor for a free on-site inspection within 45 minutes.</p>
+          <div class="process-connector"></div>
+        </div>
+        <div class="process-card reveal">
+          <div class="process-num">02</div>
+          <h4>Detailed Estimate</h4>
+          <p>Clear written quotation with materials breakdown, labour cost, and timeline.</p>
+          <div class="process-connector"></div>
+        </div>
+        <div class="process-card reveal">
+          <div class="process-num">03</div>
+          <h4>Safe Execution</h4>
+          <p>Certified crew with industrial-grade equipment. Full safety compliance on every job.</p>
+          <div class="process-connector"></div>
+        </div>
+        <div class="process-card reveal">
+          <div class="process-num">04</div>
+          <h4>Testing & Handover</h4>
+          <p>Final load testing, pressure checks, and complete site cleanup before handover.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section why-section" id="why-us">
+    <div class="container" style="text-align: center;">
+      <div class="section-label" style="justify-content: center;">Why Choose Us</div>
+      <h2 class="section-title reveal">Built on Trust & Performance</h2>
+      <p class="section-subtitle reveal" style="margin: 0 auto 0;">Numbers that speak for our commitment to quality, safety, and reliability.</p>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-card-num" data-count="500">0</div>
+          <h4>Projects Completed</h4>
+          <p>Residential, commercial, and industrial projects across Manyam District.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card-num" data-count="100">0</div>
+          <h4>Safety Compliance</h4>
+          <p>Zero-accident safety record maintained across every single project site.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card-num" data-count="45">0</div>
+          <h4>Minutes Dispatch</h4>
+          <p>Average site arrival time across Makkuva, Bobbili, Salur, and Parvathipuram.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card-num" data-count="15">0</div>
+          <h4>Years Experience</h4>
+          <p>Over a decade of trusted service in electrical, demolition, and plumbing work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-label">Client Reviews</div>
+      <h2 class="section-title reveal">What Our Clients Say</h2>
+      <p class="section-subtitle reveal">Feedback from homeowners and businesses across the Makkuva region.</p>
+
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <blockquote>"Called them for complete old house demolition and slab breaking. Arrived on time with hydraulic breaker. Very clean and professional work."</blockquote>
+          <div class="review-author">
+            <div class="review-avatar">P</div>
+            <div class="review-author-info">
+              <h5>P. Sanyasi Rao</h5>
+              <p>Makkuva Main Road</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <blockquote>"Full house electrical wiring and panel board setup done with zero issues. Very polite and expert technicians. Highly recommended."</blockquote>
+          <div class="review-author">
+            <div class="review-avatar">G</div>
+            <div class="review-author-info">
+              <h5>G. Venkata Ramana</h5>
+              <p>Near Makkuva Bus Stand</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <blockquote>"Solved a major underground water pipe leakage and replaced CPVC fittings within 3 hours. Excellent emergency response team."</blockquote>
+          <div class="review-author">
+            <div class="review-avatar">K</div>
+            <div class="review-author-info">
+              <h5>K. Apparao</h5>
+              <p>Bobbili Road, Makkuva</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title reveal">Contact & Booking</h2>
+      <p class="section-subtitle reveal">Reach us by phone, WhatsApp, or fill the form — we respond within 15 minutes.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Ready to start your project?</h3>
+          <p>Whether it's a minor electrical repair or a full building demolition, our Makkuva-based team is ready with licensed crew and industrial equipment.</p>
+
+          <div class="contact-cards">
+            <a href="tel:8919482946" class="contact-card">
+              <div class="contact-card-icon phone-icon">📞</div>
+              <div>
+                <h5>Primary Line</h5>
+                <p>89194 82946</p>
+              </div>
+            </a>
+            <a href="tel:6304426153" class="contact-card">
+              <div class="contact-card-icon phone-icon">📞</div>
+              <div>
+                <h5>Demolition Line</h5>
+                <p>63044 26153</p>
+              </div>
+            </a>
+            <a href="https://wa.me/918919482946?text=Hello%20Ayyappa%20Works%2C%20I%20need%20a%20site%20visit." target="_blank" class="contact-card">
+              <div class="contact-card-icon wa-icon">💬</div>
+              <div>
+                <h5>WhatsApp Booking</h5>
+                <p>Chat with us instantly</p>
+              </div>
+            </a>
+            <div class="contact-card">
+              <div class="contact-card-icon loc-icon">📍</div>
+              <div>
+                <h5>Service Coverage</h5>
+                <p>Makkuva, Bobbili, Salur, Parvathipuram</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal">
+          <h3>Request a Callback</h3>
+          <p>Our field supervisor will call you back within 15 minutes.</p>
+          <form id="contactForm" onsubmit="submitForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">Full Name</label>
+                <input type="text" id="fname" placeholder="Your name" required/>
+              </div>
+              <div class="form-group">
+                <label for="fphone">Phone Number</label>
+                <input type="tel" id="fphone" placeholder="e.g. 89194 82946" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fservice">Service Required</label>
+              <select id="fservice" required>
+                <option value="">Select a service...</option>
+                <option value="electrical">Electrical Wiring & Panel Setup</option>
+                <option value="demolition">Building & RCC Demolition</option>
+                <option value="core-cutting">Diamond Core Drilling</option>
+                <option value="plumbing">CPVC / UPVC Plumbing Lines</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fmessage">Message (Optional)</label>
+              <textarea id="fmessage" placeholder="Brief description of work needed..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Request Free Site Visit</button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <div class="check-icon">✓</div>
+            <h4>Request Received!</h4>
+            <p>Our Makkuva supervisor will call you within 15 minutes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Ayyappa Electrical, Plumbing & Demolition Works</h4>
+          <p>Makkuva's trusted dual-specialty contractors for precision electrical wiring, commercial plumbing, and heavy structural demolition services.</p>
+          <div style="margin-top: 16px; display: flex; gap: 10px;">
+            <a href="tel:8919482946" class="btn btn-primary" style="padding: 10px 20px; font-size: 12px;">📞 89194 82946</a>
+            <a href="https://wa.me/918919482946?text=Hello%20Ayyappa%20Works%2C%20I%20need%20a%20site%20visit." target="_blank" class="btn btn-whatsapp" style="padding: 10px 20px; font-size: 12px;">💬 WhatsApp</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="#services">Electrical Wiring</a>
+          <a href="#services">DB Panel Setup</a>
+          <a href="#services">House Demolition</a>
+          <a href="#services">Core Cutting</a>
+          <a href="#services">Plumbing Lines</a>
+        </div>
+        <div class="footer-col">
+          <h5>Regions</h5>
+          <a href="#contact">Makkuva (HQ)</a>
+          <a href="#contact">Bobbili</a>
+          <a href="#contact">Salur</a>
+          <a href="#contact">Parvathipuram</a>
+          <a href="#contact">Manyam District</a>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <a href="#hero">Home</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
+          <a href="#process">How We Work</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Ayyappa Electrical, Plumbing & Demolition Works. All rights reserved.</p>
+        <p>Makkuva, Parvathipuram Manyam District, Andhra Pradesh</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    // === NAVBAR SCROLL EFFECT ===
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // === MOBILE MENU ===
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    // === HERO BACKGROUND SLOW ZOOM ===
+    gsap.to('#heroBgImg', {
+      scale: 1.08, duration: 20, repeat: -1, yoyo: true, ease: 'sine.inOut'
+    });
+
+    // === SCROLL REVEAL ANIMATIONS ===
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1, y: 0, duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
+          delay: (i % 3) * 0.12
+        }
+      );
+    });
+
+    // === COUNTER ANIMATION ===
+    document.querySelectorAll('.why-card-num[data-count]').forEach(el => {
+      const target = parseInt(el.dataset.count);
+      const suffix = el.closest('.why-card').querySelector('h4').textContent.includes('Compliance') ? '%'
+                   : el.closest('.why-card').querySelector('h4').textContent.includes('Minutes') ? ' min'
+                   : el.closest('.why-card').querySelector('h4').textContent.includes('Years') ? '+'
+                   : '+';
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 85%',
+        onEnter: () => {
+          gsap.to({ val: 0 }, {
+            val: target, duration: 2, ease: 'power2.out',
+            onUpdate: function() {
+              el.textContent = Math.round(this.targets()[0].val) + suffix;
+            }
+          });
+        },
+        once: true
+      });
+    });
+
+    // === FORM SUBMIT ===
+    function submitForm(e) {
+      e.preventDefault();
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }
+
+    // === HERO STAGGER ENTRANCE ===
+    gsap.from('.hero-badge', { opacity: 0, y: 20, duration: 0.6, delay: 0.2, ease: 'power2.out' });
+    gsap.from('.hero h1', { opacity: 0, y: 30, duration: 0.8, delay: 0.4, ease: 'power2.out' });
+    gsap.from('.hero-desc', { opacity: 0, y: 20, duration: 0.7, delay: 0.6, ease: 'power2.out' });
+    gsap.from('.hero-actions', { opacity: 0, y: 20, duration: 0.7, delay: 0.8, ease: 'power2.out' });
+    gsap.from('.hero-stats', { opacity: 0, y: 20, duration: 0.7, delay: 1.0, ease: 'power2.out' });
+  </script>
+
+</body>
+</html>
