@@ -55,8 +55,8 @@ export default function Navbar({ activeSector, setActiveSector }) {
                   }}
                   className={`px-4 py-1.5 rounded-full text-xs font-display font-bold uppercase tracking-wider transition-all duration-200 ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#FFB800] to-amber-500 text-black shadow-md shadow-amber-500/20 font-extrabold'
-                      : 'text-gray-200 hover:text-white hover:bg-white/10'
+                      ? 'bg-gradient-to-r from-[#FFB800] to-amber-500 text-black shadow-md shadow-amber-500/20 font-extrabold btn-hover-glow'
+                      : 'text-gray-200 hover:text-[#FFB800] hover:bg-white/10 nav-link-glow'
                   }`}
                 >
                   {sector.label}
@@ -65,21 +65,32 @@ export default function Navbar({ activeSector, setActiveSector }) {
             })}
           </nav>
 
-          {/* Right Action Buttons: Phone CTA + Interactive Dropdown Menu Button */}
+          {/* Right Action Buttons: Clean Call & WhatsApp Icon Buttons + Menu Button */}
           <div className="flex items-center gap-2">
             <a
               href="tel:8919482946"
-              className="flex items-center gap-2 bg-gradient-to-r from-[#FFB800] via-amber-500 to-[#F5A623] hover:from-amber-400 hover:to-[#FFB800] text-black font-display font-extrabold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-full shadow-lg shadow-amber-500/30 hover:scale-105 transition-all"
+              title="Call 89194 82946"
+              aria-label="Call Now"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-[#FFB800] via-amber-500 to-[#F5A623] text-black flex items-center justify-center shadow-lg shadow-amber-500/30 nav-icon-pulse btn-hover-glow"
             >
-              <PhoneCall className="w-4 h-4 text-black animate-bounce" />
-              <span className="hidden sm:inline">CALL:</span>
-              <span>89194 82946</span>
+              <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5 text-black animate-bounce" />
+            </a>
+
+            <a
+              href="https://wa.me/918919482946?text=Hello%20Ayyappa%20Works,%20I%20need%20a%20site%20inspection."
+              target="_blank"
+              rel="noopener noreferrer"
+              title="WhatsApp Chat"
+              aria-label="WhatsApp Chat"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-lg shadow-emerald-600/30 nav-icon-pulse btn-whatsapp-glow"
+            >
+              <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 fill-white text-emerald-600" />
             </a>
 
             {/* Interactive Dropdown Button */}
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[#14171F] border border-[#FFB800]/50 text-white font-display font-bold text-xs hover:bg-[#1C202B] hover:border-[#FFB800] transition-all shadow-lg"
+              className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full bg-[#14171F] border border-[#FFB800]/50 text-white font-display font-bold text-[11px] sm:text-xs hover:bg-[#1C202B] hover:border-[#FFB800] transition-all shadow-lg nav-link-glow"
             >
               <Menu className="w-4 h-4 text-[#FFB800]" />
               <span className="uppercase tracking-wider">MENU</span>
@@ -91,7 +102,7 @@ export default function Navbar({ activeSector, setActiveSector }) {
 
         {/* Dropdown Menu Container */}
         {dropdownOpen && (
-          <div className="absolute top-full right-0 mt-3 w-72 sm:w-80 bg-[#14171F] border border-[#FFB800]/40 rounded-3xl p-5 shadow-2xl z-50 backdrop-blur-xl animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="absolute top-full right-0 mt-2.5 w-[calc(100vw-32px)] max-w-xs bg-[#14171F] border border-[#FFB800]/40 rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-2xl z-50 backdrop-blur-xl animate-in fade-in slide-in-from-top-2 duration-200">
             <div className="text-[10px] font-mono uppercase tracking-widest text-[#FFB800] mb-3 font-bold px-1 flex items-center justify-between">
               <span>Navigation Menu</span>
               <button onClick={() => setDropdownOpen(false)} className="text-gray-400 hover:text-white">
@@ -100,7 +111,7 @@ export default function Navbar({ activeSector, setActiveSector }) {
             </div>
 
             {/* Jump Links */}
-            <div className="space-y-1.5 mb-4">
+            <div className="space-y-1.5">
               {navLinks.map((link, idx) => (
                 <a
                   key={idx}
@@ -112,28 +123,6 @@ export default function Navbar({ activeSector, setActiveSector }) {
                   <ChevronRight className="w-3.5 h-3.5 text-gray-500" />
                 </a>
               ))}
-            </div>
-
-            {/* Direct Emergency Phone Links */}
-            <div className="pt-3 border-t border-white/10 space-y-2">
-              <a
-                href="tel:8919482946"
-                className="flex items-center justify-between p-2.5 rounded-xl bg-[#FFB800] text-black font-display font-extrabold text-xs uppercase"
-              >
-                <span className="flex items-center gap-2">
-                  <PhoneCall className="w-3.5 h-3.5" /> 89194 82946
-                </span>
-                <span className="text-[9px] font-mono bg-black/20 px-1.5 py-0.5 rounded font-bold">PRIMARY</span>
-              </a>
-
-              <a
-                href="https://wa.me/918919482946?text=Hello%20Ayyappa%20Works,%20I%20need%20a%20site%20inspection%20in%20Makkuva/nearby."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-emerald-600 text-white font-display font-bold text-xs uppercase"
-              >
-                <MessageSquare className="w-3.5 h-3.5" /> WhatsApp Booking
-              </a>
             </div>
           </div>
         )}

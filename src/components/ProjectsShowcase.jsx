@@ -94,7 +94,7 @@ export default function ProjectsShowcase() {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="w-[300px] sm:w-[360px] flex-shrink-0 snap-start card-rim-light bg-[#14171F] rounded-3xl overflow-hidden border border-white/10 hover:border-[#FFB800]/50 transition-all duration-300 group shadow-2xl flex flex-col justify-between"
+              className="w-[280px] sm:w-[360px] max-w-[85vw] flex-shrink-0 snap-start card-rim-light bg-[#14171F] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 hover:border-[#FFB800]/50 transition-all duration-300 group shadow-2xl flex flex-col justify-between"
             >
               {/* Image Banner */}
               <div className="relative h-48 overflow-hidden bg-black/40">

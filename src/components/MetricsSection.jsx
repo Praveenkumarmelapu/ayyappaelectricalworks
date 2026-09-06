@@ -95,13 +95,13 @@ export default function MetricsSection() {
         </div>
 
         {/* Counter Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {metrics.map((metric) => {
             const Icon = metric.icon;
             return (
               <div
                 key={metric.id}
-                className="card-rim-light bg-[#14171F] p-6 rounded-3xl border border-white/10 hover:border-[#FFB800]/50 transition-all duration-300 group flex flex-col justify-between"
+                className="card-rim-light bg-[#14171F] p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/10 hover:border-[#FFB800]/50 transition-all duration-300 group flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">

@@ -86,10 +86,10 @@ export default function ServicesSection({ activeSector, setActiveSector }) {
           </div>
 
           {/* Interactive Filter Pills */}
-          <div className="flex bg-[#14171F] p-1.5 rounded-full border border-white/20 flex-wrap gap-1 shadow-xl">
+          <div className="flex flex-col sm:flex-row bg-[#14171F] p-1.5 rounded-2xl sm:rounded-full border border-white/20 gap-1 shadow-xl w-full sm:w-auto">
             <button
               onClick={() => setActiveSector('electrical')}
-              className={`px-5 py-2 rounded-full text-xs font-display font-extrabold uppercase tracking-wider transition-all ${
+              className={`px-4 sm:px-5 py-2 rounded-xl sm:rounded-full text-xs font-display font-extrabold uppercase tracking-wider transition-all text-center ${
                 activeSector === 'electrical'
                   ? 'bg-gradient-to-r from-[#FFB800] to-amber-500 text-black shadow-lg'
                   : 'text-gray-200 hover:text-white'
@@ -99,7 +99,7 @@ export default function ServicesSection({ activeSector, setActiveSector }) {
             </button>
             <button
               onClick={() => setActiveSector('demolition')}
-              className={`px-5 py-2 rounded-full text-xs font-display font-extrabold uppercase tracking-wider transition-all ${
+              className={`px-4 sm:px-5 py-2 rounded-xl sm:rounded-full text-xs font-display font-extrabold uppercase tracking-wider transition-all text-center ${
                 activeSector === 'demolition'
                   ? 'bg-gradient-to-r from-[#FFB800] to-amber-500 text-black shadow-lg'
                   : 'text-gray-200 hover:text-white'
@@ -109,7 +109,7 @@ export default function ServicesSection({ activeSector, setActiveSector }) {
             </button>
             <button
               onClick={() => setActiveSector('all')}
-              className={`px-5 py-2 rounded-full text-xs font-display font-extrabold uppercase tracking-wider transition-all ${
+              className={`px-4 sm:px-5 py-2 rounded-xl sm:rounded-full text-xs font-display font-extrabold uppercase tracking-wider transition-all text-center ${
                 activeSector === 'all'
                   ? 'bg-white/20 text-white font-bold'
                   : 'text-gray-300 hover:text-white'
@@ -121,13 +121,13 @@ export default function ServicesSection({ activeSector, setActiveSector }) {
         </div>
 
         {/* 4-Card Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
           {filteredCards.map((card) => {
             const Icon = card.icon;
             return (
               <div
                 key={card.id}
-                className="card-rim-light bg-[#14171F] p-7 rounded-3xl border border-white/15 hover:border-[#FFB800] transition-all duration-300 shadow-2xl flex flex-col justify-between"
+                className="card-rim-light bg-[#14171F] p-4 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/15 hover:border-[#FFB800] transition-all duration-300 shadow-2xl flex flex-col justify-between"
               >
                 <div>
                   {/* Card Title & Badge */}

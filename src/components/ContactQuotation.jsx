@@ -116,52 +116,61 @@ export default function ContactQuotation() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
           <a
             href="tel:8919482946"
+            aria-label="Call Primary Dispatch Line"
             className="card-rim-light bg-[#14171F] p-5 rounded-2xl border border-amber-500/40 hover:border-amber-500 flex items-center justify-between group shadow-xl transition-all"
           >
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-xl bg-[#FFB800] text-black shadow-md">
-                <PhoneCall className="w-5 h-5" />
+              <div className="p-3 rounded-xl bg-[#FFB800] text-black shadow-md group-hover:scale-110 transition-transform">
+                <PhoneCall className="w-5 h-5 text-black animate-bounce" />
               </div>
               <div>
-                <span className="text-[10px] font-mono uppercase text-amber-400 font-bold">MAKKUVA BASE LINE</span>
-                <div className="text-xl font-display font-extrabold text-white">89194 82946</div>
+                <span className="text-[10px] font-mono uppercase text-amber-400 font-bold">PRIMARY FIELD DISPATCH</span>
+                <div className="text-base font-display font-extrabold text-white">Call Field Supervisor</div>
               </div>
             </div>
-            <span className="text-[10px] font-mono bg-amber-500/10 text-amber-400 px-2.5 py-1 rounded-full border border-amber-500/30">CALL</span>
+            <div className="w-10 h-10 rounded-full bg-[#FFB800]/20 text-[#FFB800] border border-[#FFB800]/40 flex items-center justify-center font-bold">
+              📞
+            </div>
           </a>
 
           <a
             href="tel:6304426153"
+            aria-label="Call Demolition Line"
             className="card-rim-light bg-[#14171F] p-5 rounded-2xl border border-white/10 hover:border-amber-500/40 flex items-center justify-between group shadow-xl transition-all"
           >
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-xl bg-white/10 text-amber-400">
-                <PhoneCall className="w-5 h-5" />
+              <div className="p-3 rounded-xl bg-white/10 text-amber-400 group-hover:scale-110 transition-transform">
+                <PhoneCall className="w-5 h-5 text-amber-400" />
               </div>
               <div>
-                <span className="text-[10px] font-mono uppercase text-gray-400">DEMOLITION LINE</span>
-                <div className="text-xl font-display font-extrabold text-white">63044 26153</div>
+                <span className="text-[10px] font-mono uppercase text-gray-400 font-bold">DEMOLITION SUPPORT</span>
+                <div className="text-base font-display font-extrabold text-white">Call Demolition Crew</div>
               </div>
             </div>
-            <span className="text-[10px] font-mono bg-white/5 text-gray-300 px-2.5 py-1 rounded-full border border-white/10">CALL</span>
+            <div className="w-10 h-10 rounded-full bg-white/10 text-gray-200 border border-white/15 flex items-center justify-center font-bold">
+              📞
+            </div>
           </a>
 
           <a
-            href="https://wa.me/918919482946?text=Hello%20Ayyappa%20Works,%20I%20need%20a%20site%20inspection%20in%20Makkuva/nearby."
+            href="https://wa.me/918919482946?text=Hello%20Ayyappa%20Works,%20I%20need%20a%20site%20inspection."
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="WhatsApp Booking"
             className="card-rim-light bg-gradient-to-r from-emerald-950/80 to-emerald-900/80 p-5 rounded-2xl border border-emerald-500/40 hover:border-emerald-400 flex items-center justify-between group shadow-xl transition-all"
           >
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-xl bg-emerald-500 text-white">
+              <div className="p-3 rounded-xl bg-emerald-500 text-white group-hover:scale-110 transition-transform">
                 <MessageSquare className="w-5 h-5 fill-white text-emerald-500" />
               </div>
               <div>
                 <span className="text-[10px] font-mono uppercase text-emerald-400 font-bold">WHATSAPP BOOKING</span>
-                <div className="text-xl font-display font-extrabold text-white">Chat on WhatsApp</div>
+                <div className="text-base font-display font-extrabold text-white">Instant WhatsApp Chat</div>
               </div>
             </div>
-            <span className="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full border border-emerald-500/40">CHAT</span>
+            <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center font-bold">
+              💬
+            </div>
           </a>
         </div>
 
@@ -274,7 +283,7 @@ export default function ContactQuotation() {
                 <button
                   type="submit"
                   disabled={sending}
-                  className="w-full py-3.5 bg-gradient-to-r from-[#FFB800] via-amber-500 to-[#F5A623] hover:from-amber-400 hover:to-[#FFB800] text-black font-display font-extrabold uppercase text-base rounded-xl shadow-xl hover:scale-[1.01] transition-all flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="w-full py-3.5 bg-gradient-to-r from-[#FFB800] via-amber-500 to-[#F5A623] text-black font-display font-extrabold uppercase text-base rounded-xl shadow-xl flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 btn-hover-glow"
                 >
                   {sending ? (
                     <>

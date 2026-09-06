@@ -62,29 +62,51 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Emergency Direct Hotlines */}
+          {/* Direct Contact Actions */}
           <div>
-            <h4 className="text-sm font-display font-bold text-white uppercase tracking-wider mb-4">Direct Contact Numbers</h4>
-            <div className="space-y-3">
+            <h4 className="text-sm font-display font-bold text-white uppercase tracking-wider mb-4">Direct Contact & Support</h4>
+            <div className="space-y-2.5">
               <a
                 href="tel:8919482946"
+                aria-label="Call Primary Dispatch"
                 className="flex items-center gap-3 p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 border border-white/10 hover:border-amber-500/50 transition-all text-white group"
               >
-                <PhoneCall className="w-4 h-4 text-hazardYellow group-hover:scale-110 transition-transform" />
+                <div className="w-8 h-8 rounded-full bg-[#FFB800] text-black flex items-center justify-center font-bold text-xs shrink-0 group-hover:scale-110 transition-transform">
+                  📞
+                </div>
                 <div>
-                  <div className="text-sm font-display font-bold">89194 82946</div>
-                  <div className="text-[10px] text-gray-400">Primary Field Dispatch</div>
+                  <div className="text-xs font-display font-bold text-white">Call Field Dispatch</div>
+                  <div className="text-[10px] text-amber-400">Primary Technical Line</div>
                 </div>
               </a>
 
               <a
                 href="tel:6304426153"
+                aria-label="Call Demolition Line"
                 className="flex items-center gap-3 p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 border border-white/10 hover:border-amber-500/50 transition-all text-white group"
               >
-                <PhoneCall className="w-4 h-4 text-hazardYellow group-hover:scale-110 transition-transform" />
+                <div className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-xs shrink-0 group-hover:scale-110 transition-transform">
+                  📞
+                </div>
                 <div>
-                  <div className="text-sm font-display font-bold">63044 26153</div>
-                  <div className="text-[10px] text-gray-400">Alternative Support Line</div>
+                  <div className="text-xs font-display font-bold text-white">Call Demolition Support</div>
+                  <div className="text-[10px] text-gray-400">Structural Breaking Line</div>
+                </div>
+              </a>
+
+              <a
+                href="https://wa.me/918919482946?text=Hello%20Ayyappa%20Works,%20I%20need%20a%20site%20inspection."
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp Chat"
+                className="flex items-center gap-3 p-3 rounded-2xl bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-500/30 hover:border-emerald-400 transition-all text-white group"
+              >
+                <div className="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs shrink-0 group-hover:scale-110 transition-transform">
+                  💬
+                </div>
+                <div>
+                  <div className="text-xs font-display font-bold text-white">Chat on WhatsApp</div>
+                  <div className="text-[10px] text-emerald-400">Instant Message Dispatch</div>
                 </div>
               </a>
             </div>
