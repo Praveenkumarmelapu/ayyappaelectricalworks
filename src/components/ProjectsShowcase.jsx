@@ -85,16 +85,23 @@ export default function ProjectsShowcase() {
           </div>
         </div>
 
+        {/* Mobile Swipe Indicator Banner */}
+        <div className="flex sm:hidden items-center justify-center gap-2 mb-4 text-[#FFB800] font-mono text-xs font-extrabold bg-[#FFB800]/10 border border-[#FFB800]/30 py-2 px-4 rounded-full w-fit mx-auto shadow-md">
+          <span>👈</span>
+          <span>Swipe left / right to explore projects</span>
+          <span>👉</span>
+        </div>
+
         {/* Compact Horizontal Slider Carousel */}
         <div
           ref={carouselRef}
           className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory py-2 px-1 sm:px-0"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
         >
           {projects.map((project) => (
             <div
               key={project.id}
-              className="w-[88vw] max-w-[360px] sm:w-[360px] flex-shrink-0 snap-start card-rim-light bg-[#14171F] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 hover:border-[#FFB800]/50 transition-all duration-300 group shadow-2xl flex flex-col justify-between"
+              className="w-[85vw] max-w-[340px] sm:w-[360px] flex-shrink-0 snap-center card-rim-light bg-[#14171F] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 hover:border-[#FFB800]/50 transition-all duration-300 group shadow-2xl flex flex-col justify-between"
             >
               {/* Image Banner */}
               <div className="relative h-52 sm:h-56 overflow-hidden bg-black/40">

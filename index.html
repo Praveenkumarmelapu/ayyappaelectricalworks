@@ -1069,7 +1069,49 @@
       }
     }
 
+    .mobile-swipe-hint {
+      display: none;
+    }
+
     @media (max-width: 768px) {
+      .mobile-swipe-hint {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--accent);
+        margin: 12px 0 16px;
+        letter-spacing: 0.5px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .projects-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 16px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .projects-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .project-card {
+        flex: 0 0 85vw;
+        max-width: 320px;
+        scroll-snap-align: center;
+        aspect-ratio: 4/3;
+      }
+
       .nav-links {
         display: none;
       }
@@ -1313,6 +1355,10 @@
       <div class="section-label">Recent Work</div>
       <h2 class="section-title reveal">Project Showcase</h2>
       <p class="section-subtitle reveal">Real field projects completed across Makkuva, Bobbili, and Salur regions.</p>
+
+      <div class="mobile-swipe-hint">
+        <span>👈</span> Swipe left / right to explore projects <span>👉</span>
+      </div>
 
       <div class="projects-grid">
         <div class="project-card reveal">
